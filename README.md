@@ -26,9 +26,9 @@ Astral is in the early stages of development and is being developed for fun in m
 
 ### Partially Complete
 
-- [-] Input system
-- [-] Map system
-- [-] GUI subsystem
+- [ ] Input system
+- [ ] Map system
+- [ ] GUI subsystem
 
 ### Complete
 
