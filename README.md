@@ -90,6 +90,7 @@ Astral launches by default in a 1280x800 window. This window can be resized and 
 You can also change the default window size in "graphics.c" for now if desired (be sure to re-complie):
 
 `#define DEFAULT_WINDOW_WIDTH 1280`
+
 `#define DEFAULT_WINDOW_HEIGHT 800`
 
 ### Keyboard Controls
@@ -100,7 +101,7 @@ You can also change the default window size in "graphics.c" for now if desired (
 
 ## FAQ
 
-**The application won't launch and I am getting [TEXT] and [SPRITE] errors / warnings**
+**The application won't launch and I am getting [TEXT] and [SPRITE] errors**
 
 This is due to the fact that Astral currently uses a relative path for loading resources in the `sprites/` and `fonts/` directories. For now, enter the astral directory first, then run the application:
 
