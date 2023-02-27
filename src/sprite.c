@@ -95,7 +95,7 @@ Sprite* loadSprite(char *filename, u16 frameWidth, u16 frameHeight)
             }
 
             strncpy(SpriteList[i].filename, filename, MAX_FILE_LENGTH);
-	        SDL_QueryTexture(SpriteList[i].image, NULL, NULL, &SpriteList[i].imageWidth, &SpriteList[i].imageHeight);
+            SDL_QueryTexture(SpriteList[i].image, NULL, NULL, &SpriteList[i].imageWidth, &SpriteList[i].imageHeight);
             SpriteList[i].frameWidth = frameWidth;
             SpriteList[i].frameHeight = frameHeight;
             SpriteList[i].framesPerLine = SpriteList[i].imageWidth / frameWidth;
