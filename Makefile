@@ -16,7 +16,7 @@
 
 CC = gcc
 VPATH=./src
-OBJ = main.o datatypes.o graphics.o sprite.o text.o gui.o input.o map.o entity.o camera.o player.o planet.o
+OBJ = main.o datatypes.o graphics.o shapes.o sprite.o text.o gui.o input.o map.o entity.o camera.o player.o planet.o
 SDL_CFLAGS = `sdl2-config --cflags`
 SDL_LDFLAGS = `sdl2-config --libs` -lSDL2_image -lSDL2_ttf
 LFLAGS = -g -lm -o astral
@@ -31,6 +31,7 @@ clean:
 main.o: main.c
 datatypes.o: datatypes.h datatypes.c
 graphics.o: graphics.h graphics.c
+shapes.o: shapes.h shapes.c
 sprite.o: sprite.h sprite.c
 text.o: text.h text.c
 gui.o: gui.h gui.c
