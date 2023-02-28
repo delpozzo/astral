@@ -15,7 +15,6 @@ Astral is in the early stages of development and is being developed for fun in m
 ### To-Do List
 
 - [ ] Audio system
-- [ ] Collision detection
 - [ ] Inertial stabalization
 - [ ] Load map from .map file
 - [ ] Ship Outfitting
@@ -26,6 +25,7 @@ Astral is in the early stages of development and is being developed for fun in m
 
 ### Partially Complete
 
+- [ ] Collision detection
 - [ ] Input system
 - [ ] Map system
 - [ ] GUI subsystem
