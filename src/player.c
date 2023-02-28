@@ -47,6 +47,8 @@ Entity* spawnPlayer(i32 x, i32 y)
     self->turnSpeed = 1.5;
     self->maxSpeed = 5.0;
     self->think = thinkPlayer;
+    createBoundingBox(self, 0.5);
+    self->collidable = blnTrue;
 
     gCamera.focus = self;
 
@@ -60,11 +62,19 @@ void thinkPlayer(Entity *self)
     {
         self->rotation -= self->turnSpeed;
     }
+    if(self->rotation < 0)
+    {
+        self->rotation = 360 + self->rotation;
+    }
 
     // turn right
     if(gInput[inputRight] == blnTrue)
     {
         self->rotation += self->turnSpeed;
+    }
+    if(self->rotation >= 360)
+    {
+        self->rotation = self->rotation - 360;
     }
 
     // engage engine
@@ -108,7 +118,7 @@ void thinkPlayer(Entity *self)
     Coord limit;
     limit.x = gCamera.bufferW - self->spriteSheet->frameWidth * self->scale;
     limit.y = gCamera.bufferH - self->spriteSheet->frameHeight * self->scale;
-    
+
     if(self->position.x < 0)
     {
         self->position.x = 0;
@@ -130,5 +140,7 @@ void thinkPlayer(Entity *self)
         self->position.y = limit.y;
         self->velocity.y = 0;
     }
+
+    updateBoundingBox(self);
 }
 

@@ -21,12 +21,13 @@
 #define DEBUG_SPACING 25
 
 Font *debugFont = NULL;
+SDL_Color debugColor = {255, 255, 0};
 char debugTextBuffer[MAX_DEBUG_LENGTH] = "";
 
 void initGUI()
 {
     debugFont = loadFont("fonts/DejaVuSansMono.ttf", 16, TTF_STYLE_NORMAL, 0);
-    setFontColor(debugFont, (SDL_Color){255, 255, 0});
+    setFontColor(debugFont, debugColor);
 
     printf("[INFO] [GUI] GUI initialized\n");
 }
@@ -43,6 +44,11 @@ void displayEntityDebugInfo(Entity *ent, i32 x, i32 y)
     if(ent == NULL || ent->used == blnFalse)
     {
         return;
+    }
+
+    if(ent->collidable == blnTrue)
+    {
+        drawBoundingBox(ent);
     }
 
     snprintf(debugTextBuffer, MAX_DEBUG_LENGTH, "Entity: %s", ent->name);
