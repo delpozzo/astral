@@ -41,6 +41,11 @@ void drawRect(SDL_Rect *rect, SDL_Color *color, bln fill)
 
 void drawRainbowRect(SDL_Rect *rect, u8 speed, bln fill)
 {
+    if(speed <= 0)
+    {
+        return;
+    }
+
     if(SDL_GetTicks() % speed == 0)
     {
         rainbowColor.r = rand() % 255;
@@ -88,6 +93,11 @@ void drawCircle(i32 x0, i32 y0, i32 radius, SDL_Color *color)
 
 void drawRainbowCircle(i32 x0, i32 y0, i32 radius, u8 speed)
 {
+    if(speed <= 0)
+    {
+        return;
+    }
+
     if(SDL_GetTicks() % speed == 0)
     {
         rainbowColor.r = rand() % 255;
@@ -112,6 +122,11 @@ void drawLine(i32 x1, i32 y1, i32 x2, i32 y2, SDL_Color *color)
 
 void drawRainbowLine(i32 x1, i32 y1, i32 x2, i32 y2, u8 speed)
 {
+    if(speed <= 0)
+    {
+        return;
+    }
+
     if(SDL_GetTicks() % speed == 0)
     {
         rainbowColor.r = rand() % 255;
