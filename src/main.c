@@ -70,6 +70,7 @@ void loop()
     thinkAll();
     updateCamera();
     drawAll();
+    drawAllBoundingBoxes();
     displayEntityDebugInfo(gPlayer, 50, 50);
     nextFrame();
 }

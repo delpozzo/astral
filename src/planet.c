@@ -15,6 +15,10 @@
 
 #include "planet.h"
 
+void thinkPlanet(Entity *self); // planet think function
+
+extern Entity *gPlayer;
+
 Entity* spawnPlanet(char *name, i32 x, i32 y)
 {
     Entity *self = spawnEntity();
@@ -45,7 +49,22 @@ Entity* spawnPlanet(char *name, i32 x, i32 y)
     self->scale = 0.5;
     self->position.x = x;
     self->position.y = y;
+    self->rotation = 0.0;
+    self->think = thinkPlanet;
+    createBoundingBox(self, 1.0);
+    self->collidable = blnTrue;
 
     return self;
+}
+
+void thinkPlanet(Entity *self)
+{
+    updateBoundingBox(self);
+
+    // Just a test for now, the planet will spin when colliding with the player
+    if(collide(self, gPlayer) == blnTrue)
+    {
+        self->rotation += 1;
+    }
 }
 

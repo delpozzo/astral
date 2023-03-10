@@ -68,6 +68,7 @@ void thinkAll(); // calls think function for all active entities with a think fu
 void createBoundingBox(Entity *ent, f32 scale); // calculates bounding box for entity using sprite frame size and scale
 void updateBoundingBox(Entity *ent); // updates bounding box position for specified entity
 void drawBoundingBox(Entity *ent); // draw bounding box for specified entity (mostly for debugging)
+void drawAllBoundingBoxes(); // draw bounding boxes for all entities (mostly for debugging)
 bln collide(Entity *ent1, Entity *ent2); // returns true if the two entities are colliding
 Entity* checkAllCollisions(Entity *src); // returns first entity to collide with the src entity
 

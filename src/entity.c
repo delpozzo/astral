@@ -202,11 +202,30 @@ void drawBoundingBox(Entity *ent)
     drawRect(&rect, &bboxColor, blnFalse);
 }
 
+void drawAllBoundingBoxes()
+{
+    for(u16 i = 0; i < MAX_ENTITIES; i++)
+    {
+        if(EntityList[i].used == blnTrue && EntityList[i].collidable == blnTrue)
+        {
+            drawBoundingBox(&EntityList[i]);
+        }
+    }
+}
+
 bln collide(Entity *ent1, Entity *ent2)
 {
     if(ent1 == NULL || ent1-> used == blnFalse || ent2 == NULL || ent2-> used == blnFalse)
     {
         return blnFalse;
+    }
+
+    SDL_Rect box1 = ent1->bbox.rect[ent1->bbox.activeBox];
+    SDL_Rect box2 = ent2->bbox.rect[ent2->bbox.activeBox];
+
+    if((box1.x+box1.w >= box2.x) && (box1.x <= box2.x+box2.w) && (box1.y+box1.h >= box2.y) && (box1.y <= box2.y+box2.h))
+    {
+        return blnTrue;
     }
 
     return blnFalse;
@@ -217,6 +236,20 @@ Entity* checkAllCollisions(Entity *src)
     if(src == NULL || src-> used == blnFalse)
     {
         return NULL;
+    }
+
+    for(u16 i = 0; i < MAX_ENTITIES; i++)
+    {
+        // don't check collisions with self or owner
+        if(&EntityList[i] == src || &EntityList[i] == src->owner)
+        {
+            continue;
+        }
+        // check collisions if entity is in use and collidable
+        if(EntityList[i].used == blnTrue && EntityList[i].collidable == blnTrue && collide(src, &EntityList[i]))
+        {
+            return &EntityList[i];
+        }
     }
 
     return NULL;
