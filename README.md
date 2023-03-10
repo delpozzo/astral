@@ -25,7 +25,6 @@ Astral is in the early stages of development and is being developed for fun in m
 
 ### Partially Complete
 
-- [ ] Collision detection
 - [ ] Input system
 - [ ] Map system
 - [ ] GUI subsystem
@@ -38,6 +37,7 @@ Astral is in the early stages of development and is being developed for fun in m
 - [x] Entity management system
 - [x] Camera management system
 - [x] Parallax scrolling
+- [x] Collision detection
 
 ## Dependencies
 
